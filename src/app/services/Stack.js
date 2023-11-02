@@ -14,12 +14,13 @@ export class Stack {
     }
 
     pop() {
-        if (isEmpty) {
+        if (this.isEmpty()) {
             return false;
         }
 
         this.count--;
         delete this.data[this.count];
+        this.data.pop();
     }
 
     delete(index) {
@@ -30,8 +31,8 @@ export class Stack {
         if (index < 0 || index >= this.count) {
             return false;
         }
-        
-        for(let i = 0; i < this.count - 1; i++) {
+
+        for (let i = 0; i < this.count - 1; i++) {
             if (i === index - 1) {
                 delete this.data[i];
             }
@@ -58,7 +59,7 @@ export class Stack {
             return false;
         }
 
-        for(let i = 0; i < this.count - 1; i++) {
+        for (let i = 0; i < this.count - 1; i++) {
             if (data[i] === item) {
                 return true;
             }
@@ -74,7 +75,7 @@ export class Stack {
         let temp = [];
         let index = 0;
 
-        for(let i = count - 1; i >= 0; i--) {
+        for (let i = count - 1; i >= 0; i--) {
             temp[index] = this.data[i];
             index++;
         }

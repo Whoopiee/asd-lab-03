@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stack } from './services/Stack';
 
 export default function Home() {
@@ -17,34 +17,44 @@ export default function Home() {
   }
 
   const handleAdd = () => {
-    setStack(prev => prev.push(addValue));
+    stack.push(addValue);
+    setStack(stack);
+    console.log(stack);
   }
 
   const handleDelete = () => {
-    setStack(prev => prev.pop());
+    stack.pop();
+    setStack(stack);
+    console.log(stack);
   }
 
   const handleSwap = () => {
-    setStack(prev => prev.swapHeadTail());
+    stack.swapHeadTail();
+    setStack(stack);
+    console.log(stack);
   }
 
   const handleReverse = () => {
-    setStack(prev => prev.reverse());
+    stack.reverse();
+    setStack(stack);
+    console.log(stack);
   }
 
   const handleCheck = () => {
-    
+
   }
 
   const handleDrop = () => {
-    
+
   }
 
-  console.log(stack)
+  // useEffect(() => {
+  //   console.log(stack)
+  // }, [stack])
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <input onChange={handleChangeAddField} id="add"/>
+      <input onChange={handleChangeAddField} style={{ color: "black" }} id="add" />
       <button onClick={handleAdd}>Add</button>
       <button onClick={handleDelete}>Delete</button>
       <button onClick={handleSwap}>Swap Head and Tail</button>
