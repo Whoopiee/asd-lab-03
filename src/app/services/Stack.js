@@ -1,19 +1,19 @@
 export class Stack {
-    constructor() {
+    constructor() { // поля класу Стек
         this.data = [];
         this.count = 0;
     }
 
-    isEmpty() {
+    isEmpty() {  // перевірка на наявність елементів в стеку
         return this.count === 0;
     }
 
-    push(item) {
+    push(item) { // додавання елементу в кінець Стека
         this.data[this.count] = item;
         this.count++;
     }
 
-    pop() {
+    pop() { // видалення останнього доданого елемента
         if (this.isEmpty()) {
             return false;
         }
@@ -23,23 +23,7 @@ export class Stack {
         this.data.pop();
     }
 
-    delete(index) {
-        if (this.isEmpty()) {
-            return false;
-        }
-
-        if (index < 0 || index >= this.count) {
-            return false;
-        }
-
-        for (let i = 0; i < this.count - 1; i++) {
-            if (i === index - 1) {
-                delete this.data[i];
-            }
-        }
-    }
-
-    swapHeadTail() {
+    swapHeadTail() { // заміна першого і останнього елементів Стека
         if (this.isEmpty()) {
             return false;
         }
@@ -49,17 +33,17 @@ export class Stack {
         this.data[0] = tail;
     }
 
-    clear() {
+    clear() { // очистка Стека
         this.data = [];
         this.count = 0;
     }
 
-    isContain(item) {
+    isContain(item) { // перевірка наявності елемента в Стеку
         if (this.isEmpty()) {
             return false;
         }
 
-        for (let i = 0; i < this.count - 1; i++) {
+        for (let i = 0; i <= this.count - 1; i++) {
             if (this.data[i] === item) {
                 return true;
             }
@@ -67,7 +51,7 @@ export class Stack {
         return false;
     }
 
-    reverse() {
+    reverse() { // розворот Стека
         if (this.isEmpty()) {
             return false;
         }
@@ -84,7 +68,7 @@ export class Stack {
         temp = [];
     }
 
-    getStack() {
+    getStack() { // отримання елементів Стеку
         return this.data;
     }
 
