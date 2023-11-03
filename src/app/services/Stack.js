@@ -40,7 +40,7 @@ export class Stack {
     }
 
     swapHeadTail() {
-        if (this.isEmpty) {
+        if (this.isEmpty()) {
             return false;
         }
 
@@ -54,13 +54,13 @@ export class Stack {
         this.count = 0;
     }
 
-    isExist(item) {
-        if (this.isEmpty) {
+    isContain(item) {
+        if (this.isEmpty()) {
             return false;
         }
 
         for (let i = 0; i < this.count - 1; i++) {
-            if (data[i] === item) {
+            if (this.data[i] === item) {
                 return true;
             }
         }
@@ -68,20 +68,24 @@ export class Stack {
     }
 
     reverse() {
-        if (this.isEmpty) {
+        if (this.isEmpty()) {
             return false;
         }
 
         let temp = [];
         let index = 0;
 
-        for (let i = count - 1; i >= 0; i--) {
+        for (let i = this.count - 1; i >= 0; i--) {
             temp[index] = this.data[i];
             index++;
         }
 
-        this.data = [...temp];
+        this.data = Array.from(temp);
         temp = [];
+    }
+
+    getStack() {
+        return this.data;
     }
 
 }
